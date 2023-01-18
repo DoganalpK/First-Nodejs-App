@@ -3,7 +3,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-
+app.use(express.static("node_modules"));
 
 const data = [
     { id: 1, name: "iphone 11", price: 30000, isActive: true, imgPath: "image1.jpg" },
