@@ -1,32 +1,31 @@
-//Server oluştur
-var http = require("http");
+const express = require("express");
+const app = express();
 
-//filesystem
-var fs = require("fs");
+app.set("view engine", "ejs");
 
-var server = http.createServer((req, res) => {
 
-    if (req.url == "/") {
-        fs.readFile("index.html", (err, html) => {
-            res.write(html);
-            res.end();
-        });
-    }
-    else if (req.url == "/urunler") {
-        fs.readFile("urunler.html", (err, html) => {
-            res.write(html);
-            res.end();
-        })
-    }
-    else {
-        fs.readFile("404.html", (err, html) => {
-            res.write(html);
-            res.end();
-        })
-    }    
+const data = [
+    { id: 1, name: "iphone 11", price: 30000 },
+    { id: 2, name: "iphone 12", price: 35000 },
+    { id: 3, name: "iphone 13", price: 40000 },
+]
+
+
+//routes
+app.use("/products/:id", (req, res) => {
+    res.render("product-detail");
 });
 
-//Port aç
-server.listen(3000, () => {
-    console.log("node.js server at port 3000");
+app.use("/products", (req, res) => {
+    res.render("products", {
+        productList: data
+    });
+});
+
+app.use("/", (req, res) => {
+    res.render("index")
+});
+
+app.listen(3000, () => {
+    console.log("3000 port")
 });
