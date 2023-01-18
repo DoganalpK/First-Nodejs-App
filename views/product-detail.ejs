@@ -7,6 +7,12 @@
     <title>Urun Detail</title>
 </head>
 <body>
-    Urun Detail
+    <h1><%= name %> </h1>
+    <p>Fiyat : <%= price %> </p>
+    <p><% if (isActive) { %>
+    <span>Urun satista</span>
+    <% } else { %>
+     <span>Urun satista degil</span>
+    <% } %></p>
 </body>
 </html>
