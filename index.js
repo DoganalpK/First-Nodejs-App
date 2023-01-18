@@ -7,10 +7,9 @@ app.use(express.static("node_modules"));
 
 const data = [
     { id: 1, name: "iphone 11", price: 30000, isActive: true, imgPath: "image1.jpg" },
-    { id: 2, name: "iphone 12", price: 35000, isActive: true, imgPath: "image1.jpg" },
-    { id: 3, name: "iphone 13", price: 40000, isActive: false, imgPath: "image1.jpg" },
-]
-
+    { id: 2, name: "iphone 12", price: 35000, isActive: true, imgPath: "image2.jpg" },
+    { id: 3, name: "iphone 13", price: 40000, isActive: false, imgPath: "image3.jpg" },
+];
 
 //routes
 app.use("/products/:id", (req, res) => {
@@ -25,7 +24,9 @@ app.use("/products", (req, res) => {
 });
 
 app.use("/", (req, res) => {
-    res.render("index")
+    res.render("index", {
+        productList: data
+    })
 });
 
 app.listen(3000, () => {

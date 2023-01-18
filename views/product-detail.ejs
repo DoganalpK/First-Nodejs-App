@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,33 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Urun Detail</title>
 </head>
-<body class="bg-info">
-    <h1><%= name %> </h1>
-    <img src="/images/<%= imgPath %>" alt="" width="300">
-    <p>Fiyat : <%= price %> </p>
-    <p><% if (isActive) { %>
-    <span>Urun satista</span>
-    <% } else { %>
-     <span>Urun satista degil</span>
-    <% } %></p>
+
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="/images/<%= imgPath %>" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= name %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= price %>
+                                </p>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae eum ratione officiis itaque cum vero, eaque quo fugit dolore amet accusamus ad porro, non eius beatae distinctio laborum natus minus.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati illo vero reprehenderit quia laboriosam asperiores autem aperiam repudiandae nulla? Suscipit modi inventore ab, debitis voluptatum ullam quasi veritatis maxime sed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
